@@ -4,6 +4,9 @@ This is a fork of the Final Fantasy V Disassembly,  It aims to build a new versi
 the Beastmaster Job is a much more viable choice.
 
 Orginal README.md below:
+
+-==========================================================================================================================================================================-
+
 This is a disassembly of Final Fantasy V for the Super Famicom/SNES. It is a
 work in progress which aims to build the following ROMs:
 
