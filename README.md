@@ -1,7 +1,9 @@
-# Final Fantasy 5: Better Beastmaster
+# Final Fantasy 5 Heroes
 
-This is a fork of the Final Fantasy V Disassembly,  It aims to build a new version of the game where
-the Beastmaster Job is a much more viable choice.
+This is a fork of the Final Fantasy V Disassembly,
+
+This builds a new version of the game that replaces jobs with
+iconic characters from the final fantasy series
 
 Orginal README.md below:
 
