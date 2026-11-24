@@ -7,5 +7,28 @@
     "fixed_length_en",
     "dte_en"
   ],
-  "text": []
+  "text": [
+    "Knight",
+    "Monk",
+    "Thief",
+    "Dragoon",
+    "Ninja",
+    "Samurai",
+    "Berserkr",
+    "Hunter",
+    "MysticKnt",
+    "WhiteMage",
+    "BlackMage",
+    "TimeMage",
+    "Summoner",
+    "BlueMage",
+    "Red{pad}Mage",
+    "Mediator",
+    "Chemist",
+    "Geomancr",
+    "Bard",
+    "Dancer",
+    "Mimic",
+    "Normal{pad}h"
+  ]
 }

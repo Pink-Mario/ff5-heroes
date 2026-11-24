@@ -7,5 +7,30 @@
     "fixed_length_en",
     "dte_en"
   ],
-  "text": []
+  "text": [
+    "Wounded",
+    "Stone",
+    "Toad",
+    "Mini",
+    "Float",
+    "Poison",
+    "Zombie",
+    "Darkness",
+    "Aging",
+    "Sleep",
+    "Paralyze",
+    "Charm",
+    "Berserk",
+    "Mute",
+    "Image",
+    "Image",
+    "Wall",
+    "Armor",
+    "Shell",
+    "Stop",
+    "Haste",
+    "Slow",
+    "",
+    "Regen{0x2D}{0x02}{0x19}"
+  ]
 }

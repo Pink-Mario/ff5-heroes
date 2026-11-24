@@ -7,5 +7,14 @@
     "fixed_length_en",
     "dte_en"
   ],
-  "text": []
+  "text": [
+    "Magic",
+    "Weapn",
+    "Armor",
+    "Item",
+    "Relic",
+    "Guild",
+    "Medicine",
+    "Generalif"
+  ]
 }

@@ -156,11 +156,21 @@ if __name__ == '__main__':
             file_bytes = bytearray(file.read())
         crc32 = binascii.crc32(file_bytes) & 0xFFFFFFFF
 
+        if crc32 == 0xB39211CF and len(file_bytes) == 0x280200:
+            unheadered_bytes = file_bytes[512:]
+            unheadered_crc32 = binascii.crc32(unheadered_bytes) & 0xFFFFFFFF
+            if unheadered_crc32 == 0xC6A5F671:
+                file_bytes = unheadered_bytes
+                crc32 = unheadered_crc32
+
         if crc32 == 0xC1BC267D:
             rom_name = 'Final Fantasy V 1.0 (J)'
             rom_language = 'jp'
         elif crc32 == 0x17444605:
             rom_name = 'Final Fantasy V 1.10 (RPGe)'
+            rom_language = 'en'
+        elif crc32 == 0xC6A5F671 and len(file_bytes) == 0x280000:
+            rom_name = 'Final Fantasy V (RPGe-compatible patched ROM)'
             rom_language = 'en'
         else:
             continue

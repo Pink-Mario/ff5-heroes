@@ -7,5 +7,28 @@
     "text_en",
     "dte_en"
   ],
-  "text": []
+  "text": [
+    "Cover near-death allies{0}",
+    "Brawl{n}Counter-attack{0}",
+    "Dash by holding Cancel{n}See hidden passages{0}",
+    "{0}",
+    "Frequent preemptive attacks{n}Hold a weapon in each hand{0}",
+    "Evade attacks{0}",
+    "Always `Berserk'{0}",
+    "{0}",
+    "Put up a Magic Barrier{n}when near death{0}",
+    "{0}",
+    "{0}",
+    "{0}",
+    "{0}",
+    "Learn monsters' special{n}attacks{0}",
+    "Use elementary black and{n}white magic{0}",
+    "{0}",
+    "Double the effects of{n}Potions and Ethers{0}",
+    "Detect trap holes{n}No damage on damage floors{0}",
+    "{0}",
+    "{0}",
+    "Able to equip any weapon{n}or armor except ribbon{0}",
+    "Able to equip any weapon{n}or armor{0}{0}"
+  ]
 }
