@@ -81,6 +81,8 @@ distclean: clean
 # ROM filenames
 FF5_JP_PATH = $(ROM_DIR)/ff5-jp.sfc
 FF5_EN_PATH = $(ROM_DIR)/ff5-en.sfc
+FF5_JP_SRM_PATH = $(ROM_DIR)/ff5-jp.srm
+FF5_EN_SRM_PATH = $(ROM_DIR)/ff5-en.srm
 
 ff5-jp: $(FF5_JP_PATH)
 ff5-en: $(FF5_EN_PATH)
@@ -228,7 +230,7 @@ battle_bg_flip: $(addsuffix .bgf, $(wildcard src/gfx/battle_bg_flip/*.dat))
 
 # rules for making ROM files
 # run linker twice: 1st for the cutscene program, 2nd for the ROM itself
-$(FF5_JP_PATH): cfg/ff5-jp.cfg spc text_jp cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_JP)
+$(FF5_JP_PATH): cfg/ff5-jp.cfg spc text_jp cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_JP) $(FF5_JP_SRM_PATH)
 	@$(MKDIR_P) $(LZ_DIR) $(ROM_DIR)
 	$(LINK) $(LINKFLAGS) -o "" -C $< $(OBJ_FILES_JP)
 	$(PYTHON) tools/encode_cutscene.py $(CUTSCENE_LZ:lz=bin) $(CUTSCENE_LZ)
@@ -239,7 +241,7 @@ $(FF5_JP_PATH): cfg/ff5-jp.cfg spc text_jp cmp lz world_tilemap battle_bg_tiles 
 	@$(RMDIR) $(LZ_DIR)
 	$(PYTHON) tools/fix_checksum.py $@
 
-$(FF5_EN_PATH): cfg/ff5-en.cfg spc text_en cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_EN)
+$(FF5_EN_PATH): cfg/ff5-en.cfg spc text_en cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_EN) $(FF5_EN_SRM_PATH)
 	@$(MKDIR_P) $(LZ_DIR) $(ROM_DIR)
 	$(LINK) $(LINKFLAGS) -o "" -C $< $(OBJ_FILES_EN)
 	$(PYTHON) tools/encode_cutscene.py $(CUTSCENE_LZ:lz=bin) $(CUTSCENE_LZ)
@@ -249,3 +251,17 @@ $(FF5_EN_PATH): cfg/ff5-en.cfg spc text_en cmp lz world_tilemap battle_bg_tiles 
 	$(LINK) $(LINKFLAGS) --dbgfile $(@:sfc=dbg) -m $(@:sfc=map) -o $@ -C $< $(OBJ_FILES_EN) $(CUTSCENE_LZ).o
 	@$(RMDIR) $(LZ_DIR)
 	$(PYTHON) tools/fix_checksum.py $@
+
+$(FF5_JP_SRM_PATH): tools/create_test_save.py src/field/char_prop.dat \
+	src/field/world_tilemap/world_tilemap_2.dat \
+	src/field/world_tile_prop/bartz_world.dat src/text/item_name_en.json \
+	src/text/char_name_jp.dat src/menu/menu-main.asm
+	@$(MKDIR_P) $(ROM_DIR)
+	$(PYTHON) tools/create_test_save.py jp $@
+
+$(FF5_EN_SRM_PATH): tools/create_test_save.py src/field/char_prop.dat \
+	src/field/world_tilemap/world_tilemap_2.dat \
+	src/field/world_tile_prop/bartz_world.dat src/text/item_name_en.json \
+	src/menu/menu-main.asm
+	@$(MKDIR_P) $(ROM_DIR)
+	$(PYTHON) tools/create_test_save.py en $@

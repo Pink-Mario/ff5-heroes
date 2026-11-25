@@ -22,6 +22,12 @@ The Makefile uses `python` on Windows and `python3` on other platforms, and
 sets the `romtools` module path with the platform's path separator. If needed,
 override the interpreter with `make PYTHON=<command> rip`.
 
+Each ROM build also creates a matching `.srm` test save in `rom/`. Keep the
+`.srm` beside its `.sfc`; the ROM will automatically load save slot 1 and start
+on a walkable field in World 3 beside the airship, with all four party members
+at level 50, all jobs and spells unlocked, and 99 of every defined item. Without
+a valid test save, the normal title and load menu are shown.
+
 Here is a very nice tutorial explaining how to set up Cygwin and cc65 on
 a Windows machine: <https://github.com/SlithyMatt/x16-hello-cc65>
 

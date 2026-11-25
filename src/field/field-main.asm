@@ -34,7 +34,7 @@ inc_lang "text/job_desc_%s.inc"
 
 .import _c10003, _c10006
 .import ExecBattle_ext
-.import ExecMenu_ext, _c2a008
+.import ExecMenu_ext, UpdateJoypad_ext, _c2a008
 .import ShowCutscene_ext, Decomp_ext
 .import InitSound_ext, ExecSound_ext
 
@@ -47,6 +47,41 @@ inc_lang "text/job_desc_%s.inc"
 ; ===========================================================================
 
 .segment "field_code"
+
+; ---------------------------------------------------------------------------
+
+.proc LoadTestSave
+        php
+        longai
+        lda     f:$307ff8
+        cmp     #$e41b
+        bne     @invalid
+        ldx     #$0000
+        ldy     #$0300
+        lda     #$0000
+        clc
+@checksum:
+        adc     f:$306000,x
+        inx2
+        dey
+        bne     @checksum
+        cmp     f:$307ff0
+        bne     @invalid
+        ldx     #$6000
+        ldy     #$0500
+        lda     #$05ff
+        phb
+        mvn     #$30,#$00
+        plb
+        jsl     UpdateJoypad_ext
+        plp
+        sec
+        rts
+@invalid:
+        plp
+        clc
+        rts
+.endproc
 
 ; ---------------------------------------------------------------------------
 
@@ -75,7 +110,17 @@ inc_lang "text/job_desc_%s.inc"
         pld
         ldx     #0
         stx     $06
+        jsr     LoadTestSave
+        bcc     StartMenu
+        jsr     InitHardware
+        jsr     _c0490a
         jsl     InitSound_ext
+        jsr     _c044e3
+        jsr     InitHardware
+        jsr     InitInterrupts
+        bra     RestoreSavedGame
+
+StartMenu:
         lda     #$f1                    ; cutscene $f1 (title/credits)
         jsr     ShowCutscene
         jsr     InitHardware
@@ -90,6 +135,7 @@ inc_lang "text/job_desc_%s.inc"
         beq     NewGame
 
 ; restore saved game
+RestoreSavedGame:
         jsr     _c0491d                 ; reset ram $0b00-$1d00
         lda     $0af9
         sta     $0b60
