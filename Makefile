@@ -26,8 +26,26 @@ SPC_PRG = src/sound/ff5-spc.dat
 # make all versions
 all: $(VERSIONS)
 
-PYTHON := python3
-export PYTHONPATH := tools/romtools:$(PYTHONPATH)
+ifeq ($(OS),Windows_NT)
+PYTHON = python
+else
+PYTHON = python3
+endif
+
+ifeq ($(OS),Windows_NT)
+PYTHONPATH_SEP = ;
+else
+PYTHONPATH_SEP = :
+endif
+export PYTHONPATH := tools/romtools$(PYTHONPATH_SEP)$(PYTHONPATH)
+
+ifeq ($(OS),Windows_NT)
+MKDIR_P = $(PYTHON) -c "import os, sys; [os.makedirs(path, exist_ok=True) for path in sys.argv[1:]]"
+RMDIR = rmdir /s /q
+else
+MKDIR_P = mkdir -p
+RMDIR = rm -r
+endif
 
 # install submodules
 setup:
@@ -158,7 +176,7 @@ MODULES = field btlgfx battle menu cutscene sound text gfx
 define MAKE_MODULE
 $1_SRC := $(wildcard src/$1/*) $(wildcard src/$1/*/*)
 $$(OBJ_DIR)/$1-%.o: $$($1_SRC) $$(INC_FILES)
-	@mkdir -p $$(OBJ_DIR)
+	@$(MKDIR_P) $$(OBJ_DIR)
 	$$(ASM) $$(ASMFLAGS) -l $$(@:o=lst) src/$1/$1-main.asm -o $$@
 endef
 
@@ -170,7 +188,7 @@ CUTSCENE_LZ = $(LZ_DIR)/cutscene.lz
 CUTSCENE_LZ_ASM = $(LZ_DIR)/cutscene_lz.asm
 
 $(OBJ_DIR)/ff5-spc.o: src/sound/ff5-spc.asm $(INC_FILES)
-	@mkdir -p $(OBJ_DIR)
+	@$(MKDIR_P) $(OBJ_DIR)
 	$(ASM) $(ASMFLAGS) -l $(@:o=lst) $< -o $@
 
 $(SPC_PRG): cfg/ff5-spc.cfg $(OBJ_DIR)/ff5-spc.o
@@ -211,21 +229,23 @@ battle_bg_flip: $(addsuffix .bgf, $(wildcard src/gfx/battle_bg_flip/*.dat))
 # rules for making ROM files
 # run linker twice: 1st for the cutscene program, 2nd for the ROM itself
 $(FF5_JP_PATH): cfg/ff5-jp.cfg spc text_jp cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_JP)
-	@mkdir -p $(LZ_DIR) $(ROM_DIR)
+	@$(MKDIR_P) $(LZ_DIR) $(ROM_DIR)
 	$(LINK) $(LINKFLAGS) -o "" -C $< $(OBJ_FILES_JP)
 	$(PYTHON) tools/encode_cutscene.py $(CUTSCENE_LZ:lz=bin) $(CUTSCENE_LZ)
-	@printf '.segment "cutscene_code_lz"\n.incbin "cutscene.lz"' > $(CUTSCENE_LZ_ASM)
+	@>$(CUTSCENE_LZ_ASM) echo .segment "cutscene_code_lz"
+	@>>$(CUTSCENE_LZ_ASM) echo .incbin "cutscene.lz"
 	$(ASM) --bin-include-dir $(LZ_DIR) $(CUTSCENE_LZ_ASM) -o $(CUTSCENE_LZ).o
 	$(LINK) $(LINKFLAGS) --dbgfile $(@:sfc=dbg) -m $(@:sfc=map) -o $@ -C $< $(OBJ_FILES_JP) $(CUTSCENE_LZ).o
-	@$(RM) -r $(LZ_DIR)
+	@$(RMDIR) $(LZ_DIR)
 	$(PYTHON) tools/fix_checksum.py $@
 
 $(FF5_EN_PATH): cfg/ff5-en.cfg spc text_en cmp lz world_tilemap battle_bg_tiles battle_bg_flip $(OBJ_FILES_EN)
-	@mkdir -p $(LZ_DIR) $(ROM_DIR)
+	@$(MKDIR_P) $(LZ_DIR) $(ROM_DIR)
 	$(LINK) $(LINKFLAGS) -o "" -C $< $(OBJ_FILES_EN)
 	$(PYTHON) tools/encode_cutscene.py $(CUTSCENE_LZ:lz=bin) $(CUTSCENE_LZ)
-	@printf '.segment "cutscene_code_lz"\n.incbin "cutscene.lz"' > $(CUTSCENE_LZ_ASM)
+	@>$(CUTSCENE_LZ_ASM) echo .segment "cutscene_code_lz"
+	@>>$(CUTSCENE_LZ_ASM) echo .incbin "cutscene.lz"
 	$(ASM) --bin-include-dir $(LZ_DIR) $(CUTSCENE_LZ_ASM) -o $(CUTSCENE_LZ).o
 	$(LINK) $(LINKFLAGS) --dbgfile $(@:sfc=dbg) -m $(@:sfc=map) -o $@ -C $< $(OBJ_FILES_EN) $(CUTSCENE_LZ).o
-	@$(RM) -r $(LZ_DIR)
+	@$(RMDIR) $(LZ_DIR)
 	$(PYTHON) tools/fix_checksum.py $@

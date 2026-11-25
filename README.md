@@ -1,19 +1,10 @@
-# Final Fantasy 5 Heroes
-
-This is a fork of the Final Fantasy V Disassembly,
-
-This builds a new version of the game that replaces jobs with
-iconic characters from the final fantasy series
-
-Orginal README.md below:
-
--==========================================================================================================================================================================-
+# Final Fantasy V Disassembly
 
 This is a disassembly of Final Fantasy V for the Super Famicom/SNES. It
 builds the following ROMs:
 
 - Final Fantasy V 1.0 (J), CRC32: `0xC1BC267D`
-- Final Fantasy V 1.10 (RPGe), CRC32: `0x17444605`
+- Final Fantasy V 1.10 (RPGe), CRC32: `0xE5313FB7`
 
 I'm happy to give access to this repo to anyone interested in contributing.
 
@@ -26,6 +17,10 @@ be avoided if possible.
 - GNU Make: <https://www.gnu.org/software/make/>
 - cc65: <https://cc65.github.io>
 - Python 3: <https://www.python.org/>
+
+The Makefile uses `python` on Windows and `python3` on other platforms, and
+sets the `romtools` module path with the platform's path separator. If needed,
+override the interpreter with `make PYTHON=<command> rip`.
 
 Here is a very nice tutorial explaining how to set up Cygwin and cc65 on
 a Windows machine: <https://github.com/SlithyMatt/x16-hello-cc65>

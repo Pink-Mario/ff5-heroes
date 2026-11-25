@@ -40,6 +40,6 @@
     "DmgFloor",
     "Pitfalls",
     "Equip {rod}",
-    "Dash{0x00}{0x00}{0x00}{0x00}"
+    "Dash"
   ]
 }

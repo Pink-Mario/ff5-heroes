@@ -20,7 +20,7 @@
     "Horn",
     "Rush",
     "Body Blow",
-    "TurtleShell",
+    "Carapace",
     "Swoop",
     "Fin",
     "Tentacle",
@@ -28,7 +28,7 @@
     "Bite",
     "Elbow",
     "Axe",
-    "Head Butt",
+    "Headbutt",
     "Right Arm",
     "Tackle",
     "Slap",
@@ -69,7 +69,7 @@
     "",
     "Graying Pollen",
     "Poison Pollen",
-    "Darkness Pollen",
+    "Blind Pollen",
     "Curse Pollen",
     "Charm Pollen"
   ]

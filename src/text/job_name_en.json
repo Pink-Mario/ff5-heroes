@@ -16,7 +16,7 @@
     "Samurai",
     "Berserkr",
     "Hunter",
-    "MysticKnt",
+    "Mystic",
     "WhiteMage",
     "BlackMage",
     "TimeMage",
@@ -29,6 +29,6 @@
     "Bard",
     "Dancer",
     "Mimic",
-    "Normal{pad}h"
+    "Jobless"
   ]
 }

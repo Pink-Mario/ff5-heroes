@@ -15,22 +15,22 @@
     "Float",
     "Poison",
     "Zombie",
-    "Darkness",
+    "Blind",
     "Aging",
     "Sleep",
     "Paralyze",
     "Charm",
-    "Berserk",
+    "Fury",
     "Mute",
     "Image",
     "Image",
     "Wall",
-    "Armor",
+    "Safe",
     "Shell",
     "Stop",
-    "Haste",
+    "Fast",
     "Slow",
     "",
-    "Regen{0x2D}{0x02}{0x19}"
+    "Regen"
   ]
 }
