@@ -223,7 +223,7 @@ BattleCharGfx:
         .if (i .mod 22) = 0
         .ident(.sprintf("BattleCharGfx_%d", i / 22)) := *
         .endif
-        .incbin .sprintf("battle_char_gfx/gfx_%04x.4bpp", i)
+        .incbin .sprintf("battle_char_gfx/gfx_%04x.4bpp", i .mod 22)
         .endrep
 
 ; ------------------------------------------------------------------------------

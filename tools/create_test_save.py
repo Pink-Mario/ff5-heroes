@@ -9,6 +9,7 @@ SAVE_SIZE = 0x0600
 SAVE_SLOT_OFFSET = 0x0000
 CHARACTER_RECORD_SIZE = 0x0050
 CHARACTER_LEVEL_OFFSET = 0x0002
+CHARACTER_NOT_IN_PARTY = 0x40
 AVAILABLE_JOBS_OFFSET = 0x0340
 KNOWN_SPELLS_OFFSET = 0x0450
 ITEM_IDS_OFFSET = 0x0140
@@ -86,6 +87,7 @@ def create_save(language: str) -> bytearray:
     record[0x0470:0x0490] = DEFAULT_CONFIG
 
     for character_offset in range(0, len(character_data), CHARACTER_RECORD_SIZE):
+        record[character_offset] &= ~CHARACTER_NOT_IN_PARTY
         record[character_offset + CHARACTER_LEVEL_OFFSET] = 50
     record[0x00A0] = (record[0x00A0] & 0xF8) | 0x04
 
