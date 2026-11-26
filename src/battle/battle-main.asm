@@ -23955,7 +23955,7 @@ Stats:
         stz $17		;**bug: these should be sign-extended if negative
         longa	;	or otherwise handled differently later
 AddBonusStats:
-        asl $18			;shift stat bit into carry
+        asl $19			;shift stat bit into carry
         bcs Bonus2
         lda $14			;bonus 1 if bit unset
         bra :+
@@ -25007,7 +25007,7 @@ WeaponProp:
         .byte   $00,$80,$04,$80,$55,$0c,$78,$31,$31,$00,$32,$28
         .byte   $30,$80,$05,$80,$55,$84,$16,$63,$31,$00,$00,$00
         .byte   $00,$80,$05,$c7,$55,$04,$78,$6e,$31,$10,$00,$00
-        .byte   $00,$80,$05,$80,$55,$04,$78,$8c,$31,$00,$00,$00
+        .byte   $00,$80,$0c,$fb,$55,$04,$78,$ff,$31,$00,$00,$00
         .byte   $38,$80,$06,$c0,$17,$00,$78,$37,$33,$00,$00,$00
         .byte   $38,$80,$06,$a0,$17,$00,$78,$19,$33,$00,$00,$00
         .byte   $00,$80,$06,$80,$17,$00,$78,$1e,$33,$00,$00,$00
@@ -25541,7 +25541,7 @@ EquipStatBonusTbl:
         .byte   $00,$01
         .byte   $00,$02
         .byte   $00,$03
-        .byte   $ff,$01
+        .byte   $19,$19
         .byte   $ff,$00
         .byte   $fb,$05
         .byte   $fb,$00

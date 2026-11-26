@@ -1,28 +1,150 @@
 FINAL FANTASY 5 HEROES
 
+General Rules
+1. Named characters ONLY!
+2. Character has to be specific enough to warrent a slot
+3. A "job" can be outright unrepresented to include more characters
+
+JOB LEVEL STAT GROWTH
+Basically, each character gets some extra stat increases based on job level instead of gaining new abilities
+
+All characters would innately have the Sprint and Learning passives, your welcome.
 
 PLAYABLE CHARACTERS
 
-Knight -
-Thief -
-Monk -
-Black Mage -
-White Mage -
-Blue Mage -
+Freelancer - Onion Knight
+The starter job from FF3, is techinally an actual character but for this project - he will be the only character that can be "stacked"
+True to his apperance in the original FF3 - he will suck stat-wise and take alot of AP to master but he has the best ""job level stat growth"" 
+He can use Knives, Swords and Bows - as well as Heavy, Light and Mage armor
+Like the DS counterpart he will be able to use white and black magic
 
-Red Mage -
-Time Mage -
-Mystic Knight -
-Summoner -
-Berserker -
+Commands:
+White (Lv. 2)
+Black (Lv. 2)
 
-Ninja -
-Ranger -
-Beastmaster -
-Geomancer -
-Bard -
+Passives:
+N/A
 
-Samurai -
-Dragoon -
-Dancer -
-Chemist - 
+Ultimate Weapon: Onion Sword (replaces ragnarok)
+Gives huge stat bonuses and has 255 Attack
+
+Nice to have things:
+Also maybeee include the ability to Summon (Lv. 3) somehow?
+Include other Onion Equipment
+
+Knight - Cecil
+The character that this job took most of its things from anyways.
+His stats would be more on the Stamina and Magic side comapared to Knight
+He can use Swords, Knightswords and Axes and use Heavy Armor + Shields
+
+Commands:
+Fortify - Replaces Guard, gives Protect to a target for free
+White (Lv. 4)
+
+Passives:
+Doublegrip (?)
+Cover (side-note, being in a "wounded" state would be more lienent in this hack)
+Magic Shell
+
+Ultimate Weapon: LightBringer (replaces Exclibur)
+Would be the same, but this one is for cecil :DS
+
+Nice to have things:
+If "mastered" buffs are possible, let Fortify give protect and shell (or party wide protect) - and replace Whitfe Lv 4 with Lv 5
+Allow Cover to also cover magical damage
+Maybe allow for old Guard to still be here?
+
+Thief - Locke
+TREASURE HUNTER! Of course pal.
+Stat wise he'd be the same as Thief but with slighty more agility, strength and magic
+He'd be able to use Knives, Swords, Ninja Knives, Boomerangs and use Light Armor + Shields
+
+Commands:
+Steal (side-note, this hack would improve steal chances overall)
+Red Magic (Lv. 3)
+
+Passives:
+All of thevies passives
+All of ninja's passives minus duel-wield
+Light Step
+Avoid Pitfalls
+
+
+Ultimate Weapon: Valiant Knife (replaces Thief Knife)
+Deals more damage the lower your health is (if its easy to implement)
+Otherwise, A improved thieves knife that always procs mug
+
+Monk - Sabin
+A very great contestent for this slot
+Would have higher strength but lower stamina than normal Monk and slighty higher magic and agility
+He wouldn't be able to use any* weapons and he'd use Light Armor
+
+Commands:
+AuraBolt - Replaces Kick, single target holy element magic attack
+Chakra - Would heal the entire party instead of just the user
+
+Passives:
+Barehanded (duh)
+Samurai's Dodge Chance Thing
+
+Ultimate Weapon: Tiger Fang (replaces ???)
+A real weapon with good stats and bonus magic, good alternative if you don't want to use Kasier Knuckles and instead want to use Hermes Sandels
+
+
+Black Mage - Palom
+Another obvious choice
+Stats would be the same for the most part, slighty higher strength perchance?
+He would be able to use Knives and Rods, and use Light and Mage Armor
+
+Commands:
+Black Magic (Lv. 6)
+Bluff - replaces Scan, increases Magic on usage
+
+Passives:
+N/A
+
+Ultimate Weapon: Triton's Dagger (replaces Magus Rod)
+A knife that gives alot of Magic and also has a chance to proc Thundaga on hit
+
+White Mage - Porom
+Another Another obvious choice
+Stats would be the same for the most part, slighty higher stamina perchance?
+He would be able to use Staves and Bows, and use Mage Armor
+
+Commands:
+White Magic (Lv. 6)
+Cry - replaces Flee, decreases defense of all enemies
+
+Ultimate Weapon: Seraphim's Mace (replaces Sage Staff)
+Functions like the Sage Staff, but casts Esuna instead of Raise on use
+
+Blue Mage - Strago
+Stats would be less physical oriented and mor magical oriented
+He would be able to use Rods and Shields
+
+Commands:
+Blue (would be renamed to Lore)
+Observe (maybe also restores MP?)
+
+Ultimate Weapon: Stardust Rod (replaces ???)
+A actually good attacking rod, chance to proc Holy on hit and casts Meteor when used
+
+
+Red Mage - Terra
+Time Mage - Minwu
+Mystic Knight - Celes
+Summoner - Rydia
+Berserker - Gau
+
+Ninja - Edge
+Ranger - Rosa
+Beastmaster - Mog
+Geomancer - Guy
+Bard - Edward
+
+Samurai - Cloud
+Dragoon - Kain
+Dancer - Setzer
+Chemist - Banon or General Leo
+
+Mime - Bartz

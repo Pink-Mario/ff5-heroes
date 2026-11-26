@@ -16520,11 +16520,11 @@ JobEquipTbl:
         .byte   $01,$10,$c0,$12
         .byte   $01,$00,$ec,$12
         .byte   $01,$03,$f7,$1f
-        .byte   $ff,$ff,$ff,$ff
+        .byte   $0f,$88,$77,$13
 
 ; d1/5760: job default commands (22 items, 4 bytes each)
 JobCmdTbl:
-        .byte   $05,$06,$00,$02
+        .byte   $06,$35,$00,$02
         .byte   $05,$07,$00,$02
         .byte   $05,$0b,$00,$02
         .byte   $05,$0d,$00,$02
@@ -16545,7 +16545,7 @@ JobCmdTbl:
         .byte   $05,$28,$00,$02
         .byte   $05,$2a,$00,$02
         .byte   $2b,$00,$00,$00
-        .byte   $05,$00,$00,$02
+        .byte   $05,$33,$39,$02
 
 ; d1/57b8: job passive abilities (22 items, 2 bytes each)
 JobPassiveAbilityTbl:

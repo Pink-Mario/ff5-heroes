@@ -268,7 +268,11 @@ BattleCharPal:
         .if (i .mod 22) = 0
         .ident(.sprintf("BattleCharPal_%d", i / 22)) := *
         .endif
+        .if (i .mod 22) = 21
         .incbin .sprintf("battle_char_pal/pal_%04x.pal", i)
+        .else
+        .incbin .sprintf("battle_char_pal/pal_%04x.pal", i .mod 22)
+        .endif
         .endrep
 
 ; ------------------------------------------------------------------------------
